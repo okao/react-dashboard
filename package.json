@@ -1,5 +1,6 @@
 {
-  "name": "React Dashboard",
+  "homepage": "https://okao.github.io/react-dashboard",
+  "name": "react-dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,6 +16,8 @@
     "sass": "^1.52.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^13.3.0"
+    "@testing-library/react": "^13.3.0",
+    "gh-pages": "^4.0.0"
   }
 }
