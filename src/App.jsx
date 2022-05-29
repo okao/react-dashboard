@@ -26,40 +26,53 @@ function Id() {
 function Next() {
   const set = useUpdateAtom(postId);
   return (
-    <button onClick={() => set((x) => x + 1)}>
-      <div>→</div>
+    <button className="button"  onClick={() => set((x) => x + 1)}>
+      READ NEXT
+    </button>
+  );
+}
+
+function Back() {
+  const set = useUpdateAtom(postId);
+  return (
+    <button className="button not"  onClick={() => set((x) => x - 1)}>
+      Back
     </button>
   );
 }
 
 function PostTitle() {
-  const [{ by, title, url, text, time, kids }] = useAtom(postData);
-
+  const [{ by, title, text, time, kids }] = useAtom(postData);
 
   return (
     <>
-      <h2>{by}</h2>
-      <h6>{new Date(time * 1000).toLocaleDateString("en-US")}</h6>
-      {title && <h4>{title}</h4>}
-      <a href={url}>{url}</a>
-      {text && <div>{Parser(text)}</div>}
-      <br />
-
       <div className="container">
         <div className="card">
           <img src="https://images.unsplash.com/photo-1536323760109-ca8c07450053" alt={title} />
           <div className="card__details">
-            {
-              kids && kids.map((id) => (
-                <span className="tag" key={id}>{ id }</span>
-              ))
-            }
+            <div className="tags">
+              {
+                kids && kids.map((id) => (
+                  <span className="tag" key={id}>{ id }</span>
+                ))
+              }
+            </div>
 
-            <span className="tag">{new Date(time * 1000).toLocaleDateString("en-US")}</span>
-            <span className="name" style={{ fontWeight: "bolder", fontSize: "36px" }}>{title}</span>
+            <span className="date">{new Date(time * 1000).toLocaleDateString("en-US")}</span>
 
-            {text && <p>{Parser(text)}</p>}
-            <button className="button" >Read More</button>
+            <div className="more_details">
+              <div className="main">
+                <div className="name">By: {by}</div>
+
+                {text && <div className="text">{Parser(text)}</div>}
+                {/* <a href={url} className="button" >Read More</a> */}
+                {/* <a className="button" href={url}>{url}</a> */}
+                <div style={{ display: "flex", justifyContent: "space-between", margin: "4px 0" }}>
+                  <Back />
+                  <Next />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -70,13 +83,11 @@ function PostTitle() {
 export default function App() {
   return (
     <Provider>
-      <Id />
-      <div>
-        <Suspense fallback={<h2>Loading...</h2>}>
+      <div className="main_body">
+        <Suspense fallback={<div className="lds-ripple"><div></div><div></div></div>}>
           <PostTitle />
         </Suspense>
       </div>
-      <Next />
     </Provider>
   );
 }
