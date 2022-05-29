@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/react-dashboard/static/css/main.c8ffa75a.css",
+    "main.js": "/react-dashboard/static/js/main.1738b5c6.js",
+    "static/media/Faruma.otf": "/react-dashboard/static/media/Faruma.f977017b7634a1c781a6.otf",
+    "static/media/MV_Faseyha.otf": "/react-dashboard/static/media/MV_Faseyha.0bcd306069622e5b2acd.otf",
+    "static/media/DAM_Kalhi.otf": "/react-dashboard/static/media/DAM_Kalhi.4aa4897fe37f47ff3403.otf",
+    "static/media/Dhivehi.ttf": "/react-dashboard/static/media/Dhivehi.ff8404dd27d75deed53c.ttf",
+    "index.html": "/react-dashboard/index.html",
+    "main.c8ffa75a.css.map": "/react-dashboard/static/css/main.c8ffa75a.css.map",
+    "main.1738b5c6.js.map": "/react-dashboard/static/js/main.1738b5c6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c8ffa75a.css",
+    "static/js/main.1738b5c6.js"
+  ]
+}
